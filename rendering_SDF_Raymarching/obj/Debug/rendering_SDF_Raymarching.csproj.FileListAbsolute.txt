@@ -1,0 +1,10 @@
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\bin\Debug\rendering_SDF_Raymarching.exe.config
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\bin\Debug\rendering_SDF_Raymarching.exe
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\bin\Debug\rendering_SDF_Raymarching.pdb
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\obj\Debug\rendering_SDF_Raymarching.csprojAssemblyReference.cache
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\obj\Debug\rendering_SDF_Raymarching.Form_Main.resources
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\obj\Debug\rendering_SDF_Raymarching.Properties.Resources.resources
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\obj\Debug\rendering_SDF_Raymarching.csproj.GenerateResource.cache
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\obj\Debug\rendering_SDF_Raymarching.csproj.CoreCompileInputs.cache
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\obj\Debug\rendering_SDF_Raymarching.exe
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\rendering_SDF_Raymarching\obj\Debug\rendering_SDF_Raymarching.pdb
