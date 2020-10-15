@@ -78,34 +78,15 @@ namespace rendering_SDF_Raymarching
 
                 foreach (Object obj in objects)
                 {
-                    float dn = 0, n = 0, r = obj.r;//1;
-                    byte x = 0, y = 0;
-
-                    dn = 1 / r;
-                    //for (dn = r; dn < 1 / r; dn+=dn)
-                    //{
-                    n = 0;
-                    while (n < 2 * Math.PI)
-                    {
-                        //for (r=r; r < obj.r; r++)
-                        //{
-                        x = (byte)Math.Round((double)(obj.x + r * Math.Cos(n)));
-                        y = (byte)Math.Round((double)(obj.y + r * Math.Sin(n)));
-
-                        //arrPix[x, y] = obj.id;
-                        //}
-                        //r = 1;
-                        n += dn;
-                    }
-                    //}
+                    
 
 
                     int cA = 0, cR = 0, cG = 0, cB = 0;
 
-                    for (byte i = 0; i < wMap/*arrPix.GetLength(0)*/; i++)
-                    {
-                        for (byte j = 0; j < hMap/*arrPix.GetLength(1)*/; j++)
-                        {
+                    //for (byte i = 0; i < wMap/*arrPix.GetLength(0)*/; i++)
+                    //{
+                    //    for (byte j = 0; j < hMap/*arrPix.GetLength(1)*/; j++)
+                    //    {
                             //if (//arrPix[i,j] != 0)
                             //{
                             if (obj.id == 1)/*arrPix[i, j] == 1)*/
@@ -121,10 +102,32 @@ namespace rendering_SDF_Raymarching
                                 cA = 255; cR = 128; cG = 128; cB = 0;
                             }
 
-                            bmp.SetPixel(i, j, Color.FromArgb(cA, cR, cG, cB));
+                            float dn = 0, n = 0, r = /*obj.r;*/1;
+                            byte x = 0, y = 0;
+
+                            dn = 1 / r;
+                            //for (dn = r; dn < 1 / r; dn+=dn)
+                            //{
+                            n = 0;
+                            while (n < 2 * Math.PI)
+                            {
+                                for (r=r; r < obj.r; r++)
+                                {
+                                x = (byte)Math.Round((double)(obj.x + r * Math.Cos(n)));
+                                y = (byte)Math.Round((double)(obj.y + r * Math.Sin(n)));
+
+                                //arrPix[x, y] = obj.id;
+                                }
+                                r = 1;
+                                n += dn;
+                                bmp.SetPixel(x, y, Color.FromArgb(cA, cR, cG, cB));
+                            }
                             //}
-                        }
-                    }
+
+                            
+                            //}
+                        //}
+                    //}
                 }
             }
             pictureBox_Map.Image = bmp;
