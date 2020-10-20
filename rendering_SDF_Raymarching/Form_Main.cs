@@ -46,12 +46,14 @@ namespace rendering_SDF_Raymarching
             //this.StartPosition = FormStartPosition.CenterScreen;
             this.timer_RealTime.Enabled = true;
             //this.MouseClick += new MouseEventHandler(this.Mouse_Click);
+            this.MouseWheel += new MouseEventHandler(this.pictureBox_Map_Wheel);
 
-            for (byte i = 0; i < /*arrPix.GetLength(0)*/wMap; i++)
+            for (byte i = 0; i < /*arrPix.GetLength(0)wMap*/matrixMap.GetLength(0); i++)
             {
-                for (byte j = 0; j < /*arrPix.GetLength(1)*/hMap; j++)
+                for (byte j = 0; j < /*arrPix.GetLength(1)hMap*/matrixMap.GetLength(1); j++)
                 {
                     //arrPix[i, j] = 0;
+                    matrixMap[i, j] = 0;
                     bmp.SetPixel(i, j, Color.FromArgb(255, 0, 0, 0));
                 }
             }
@@ -68,8 +70,7 @@ namespace rendering_SDF_Raymarching
             {
                 for (int j = 0; j < matrixMap.GetLength(1); j++)
                 {
-                    bmp.SetPixel(i, j, Color.FromArgb(255, 0, 0, 0));/* rnd.Next(0, 255),
-                        rnd.Next(0, 255), rnd.Next(0, 255)));*/
+                    matrixMap[i, j] = 0;
                 }
             }
 
@@ -81,7 +82,7 @@ namespace rendering_SDF_Raymarching
                     
 
 
-                    int cA = 0, cR = 0, cG = 0, cB = 0;
+                    
 
                     //for (byte i = 0; i < wMap/*arrPix.GetLength(0)*/; i++)
                     //{
@@ -89,44 +90,84 @@ namespace rendering_SDF_Raymarching
                     //    {
                             //if (//arrPix[i,j] != 0)
                             //{
-                            if (obj.id == 1)/*arrPix[i, j] == 1)*/
+                            
+
+                    //float dn = 0, n = 0, r = /*obj.r;*/1;
+                    //byte x = 0, y = 0;
+
+                    //dn = 1 / r;
+                    ////for (dn = r; dn < 1 / r; dn+=dn)
+                    ////{
+                    //n = 0;
+                    //while (n < 2 * Math.PI)
+                    //{
+                    //    for (r=r; r < obj.r; r++)
+                    //    {
+                    //    x = (byte)Math.Round((double)(obj.x + r * Math.Cos(n)));
+                    //    y = (byte)Math.Round((double)(obj.y + r * Math.Sin(n)));
+
+                    //    //arrPix[x, y] = obj.id;
+                    //    }
+                    //    r = 1;
+                    //    n += dn;
+                    //    bmp.SetPixel(x, y, Color.FromArgb(cA, cR, cG, cB));
+                    //}
+                    ////}
+
+                    float dn = 0, n = 0, r = /*obj.r;*/1;
+                    byte x = 0, y = 0;
+
+                    
+                    //for (dn = r; dn < 1 / r; dn+=dn)
+                    //{
+                    
+                    for (r = 0; r < obj.r; r++)
+                    {
+                        dn = (float)(1/Math.Pow(r,2));
+                        n = 0;
+                        while (n < 2 * Math.PI)
+                        {
+
+                            x = (byte)Math.Round((double)(obj.x + r* Math.Cos(n)*scale));
+                            y = (byte)Math.Round((double)(obj.y + r* Math.Sin(n)*scale));
+
+                            matrixMap[x, y] = obj.id;
+                            //arrPix[x, y] = obj.id;
+                            //r += 1;
+                            n += dn/scale;
+                            //bmp.SetPixel(x, y, Color.FromArgb(cA, cR, cG, cB));
+                        }
+                    }
+                    //}
+                    int cA = 0, cR = 0, cG = 0, cB = 0;
+
+                    for (int i = 0; i < matrixMap.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < matrixMap.GetLength(1); j++)
+                        {
+                            if (matrixMap[i,j] == 0)
+                            {
+                                cA = 255; cR = 0; cG = 0; cB = 0;
+                            }
+                            else if (matrixMap[i,j] == 1)
                             {
                                 cA = 255; cR = 255; cG = 0; cB = 0;
                             }
-                            else if (obj.id == 2)/*arrPix[i, j] == 2)*/
+                            else if (matrixMap[i, j] == 2)/*arrPix[i, j] == 2)*/
                             {
                                 cA = 255; cR = 0; cG = 0; cB = 255;
                             }
                             else
                             {
-                                cA = 255; cR = 128; cG = 128; cB = 0;
+                                cA = 255; cR = 255; cG = 255; cB = 0;
                             }
-
-                            float dn = 0, n = 0, r = /*obj.r;*/1;
-                            byte x = 0, y = 0;
-
-                            dn = 1 / r;
-                            //for (dn = r; dn < 1 / r; dn+=dn)
-                            //{
-                            n = 0;
-                            while (n < 2 * Math.PI)
-                            {
-                                for (r=r; r < obj.r; r++)
-                                {
-                                x = (byte)Math.Round((double)(obj.x + r * Math.Cos(n)));
-                                y = (byte)Math.Round((double)(obj.y + r * Math.Sin(n)));
-
-                                //arrPix[x, y] = obj.id;
-                                }
-                                r = 1;
-                                n += dn;
-                                bmp.SetPixel(x, y, Color.FromArgb(cA, cR, cG, cB));
-                            }
-                            //}
-
                             
-                            //}
-                        //}
+                            bmp.SetPixel(i, j, Color.FromArgb(cA, cR, cG, cB));
+                        }
+                    }
+
+                    //}
+                    //}
                     //}
                 }
             }
@@ -143,6 +184,19 @@ namespace rendering_SDF_Raymarching
             obj.id = obj_id++;
             obj.id++;
             objects.Add(obj);
+        }
+
+        private void pictureBox_Map_Wheel(object sender, MouseEventArgs e)
+        {
+            if(e.Delta > 0)
+            {
+                scale++;
+            }
+            else
+            {
+                if(scale != 0)
+                scale--;
+            }
         }
 
         //public void Mouse_Click(object sender, MouseEventArgs e)
