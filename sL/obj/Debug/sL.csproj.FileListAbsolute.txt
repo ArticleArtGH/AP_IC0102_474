@@ -1,0 +1,10 @@
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\bin\Debug\sL.exe.config
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\bin\Debug\sL.exe
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\bin\Debug\sL.pdb
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\obj\Debug\sL.csprojAssemblyReference.cache
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\obj\Debug\sL.Properties.Resources.resources
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\obj\Debug\sL.csproj.GenerateResource.cache
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\obj\Debug\sL.csproj.CoreCompileInputs.cache
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\obj\Debug\sL.exe
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\obj\Debug\sL.pdb
+D:\Locale_disk_E\Git_Save\AP_IC0102_474\sL\obj\Debug\sL.Form1.resources
